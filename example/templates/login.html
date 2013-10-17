@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/accounts/auth" method="post" id="form_login" >{% csrf_token %}
+<label id="id_username">UserName</label>
+<input type="text" name="username" id="id_text_username">
+</br>
+<label id="id_lab_password">Password: </label>
+<input type="password" name="password" id ="id_pass_password">
+</br>
+<input type="submit" value="login" >
+</form>
+{% endblock %}

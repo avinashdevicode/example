@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<ol>
+{% for article in articles %}
+<li>
+<h2><a href="/article/{{ article.id }}" >{{ article.title }}</a></h2>
+<p>{{ article.body|lower|truncatewords:"10" }}</p>
+</li>
+{% endfor %}
+</ol>
+
+{% endblock %}
+
