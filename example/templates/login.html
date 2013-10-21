@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 
+{% if form.errors %}
+Sorry nthats not a valid username/Password
+{% endif %}
 {% block content %}
-<form action="/accounts/auth" method="post" id="form_login" >{% csrf_token %}
-<label id="id_username">UserName</label>
-<input type="text" name="username" id="id_text_username">
-</br>
-<label id="id_lab_password">Password: </label>
-<input type="password" name="password" id ="id_pass_password">
-</br>
+<form action="/accounts/auth" method="post" >{% csrf_token %}
+<label for="username">User Name:</label>
+<input type="text" id="username" name="username" value="" ></input>
+<label for="Password" > Password:</label>
+<input type="password" id="Passowrd" name="password" value="" >
 <input type="submit" value="login" >
 </form>
+
 {% endblock %}

@@ -17,7 +17,7 @@
 </head>
 <body>
     <div id="header">
-        <h1>Example</h1>
+        <h1>Example</h1> Hello {{request.user.username}} 
 
     </div>
     <div id="Sidebar">
@@ -30,7 +30,11 @@
         <a href="/admin">Admin</a>
         </li>
         <li>
+        {% if request.user.username %}
+        <a href="/accounts/logout">Logout</a>
+        {% else %}
         <a href="/accounts/login">Login</a>
+        {% endif %}
         </li>
                 </ul>
         {% endblock %}

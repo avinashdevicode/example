@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+Hello {{ username }}
 <ol>
 {% for article in articles %}
 <li>
@@ -8,7 +9,7 @@
 <p>{{ article.body|lower|truncatewords:"10" }}</p>
 </li>
 {% endfor %}
-</ol>
+</ol> 
 
 {% endblock %}
 

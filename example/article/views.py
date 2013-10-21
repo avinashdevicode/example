@@ -17,7 +17,11 @@ def mainView2(reqest):
     return  HttpResponse(html)
 
 def allView(request):
-    return render_to_response('articles.html', {'articles':Article.objects.all()})
+    username = request.user.username
+    return render_to_response('articles.html', {'articles':Article.objects.all(), 'username':username})
 
 def articleView(request, article_id=1):
-    return render_to_response('article.html', {'article': Article.objects.get(id=article_id)})
+    username = request.user.username
+    if username is not None:
+        print username
+        return render_to_response('article.html', {'article': Article.objects.get(id=article_id), 'username':username})
