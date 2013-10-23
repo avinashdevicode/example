@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,10 +16,12 @@
                 float:left; ;background-color:gainsboro;
             }
         </style>
+        <script src="{%static "assets/jquery-2.0.3.js" %}"></script>
+        <script src="{%static "assets/ajax.js" %}"></script>
 </head>
 <body>
     <div id="header">
-        <h1>Example</h1> Hello {{request.user.username}} 
+        <h1>Example</h1> Hello {{user.first_name}} 
 
     </div>
     <div id="Sidebar">
@@ -30,11 +34,11 @@
         <a href="/admin">Admin</a>
         </li>
         <li>
-        {% if request.user.username %}
-        <a href="/accounts/logout">Logout</a>
-        {% else %}
-        <a href="/accounts/login">Login</a>
-        {% endif %}
+        {% if user.is_authenticated %}
+  <a href="/accounts/logout">Logout</a>
+{% else %}
+  <a href="/accounts/login">Login</a>
+{% endif %}
         </li>
                 </ul>
         {% endblock %}

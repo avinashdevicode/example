@@ -3,4 +3,14 @@
 {% block content %}
 <h1>{{ article.title }}</h1>
 <p> {{ article.body }} </p>
+<a href="/article/like/{{article.id}}" >like</a>
+<p> {{ article.likes }} NO of likes</p>
+<h2>Comments:</h2>
+{% for c in article.comment_set.all %}
+<p><strong>{{c.name}}:</strong> {{ c.body }}</p>
+{% endfor %}
+<form action="/article/{{ article.id }}/" method="post" >{% csrf_token %}
+<p>{{comment_form}}</p>
+<input type="submit" value="Comment" >
+</form>
 {% endblock %}

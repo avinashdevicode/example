@@ -1,4 +1,11 @@
 {% extends "base.html" %}
+{% block sidebar %}
+<h2>Search</h2>
+{% csrf_token %}
+<input type="text" id ="search" name ="search" >
+<ul id= "search_results" >
+</ul>
+{% endblock %}
 
 {% block content %}
 Hello {{ username }}
@@ -7,6 +14,7 @@ Hello {{ username }}
 <li>
 <h2><a href="/article/{{ article.id }}" >{{ article.title }}</a></h2>
 <p>{{ article.body|lower|truncatewords:"10" }}</p>
+<p> {{ article.likes }} NO of likes</p>
 </li>
 {% endfor %}
 </ol> 

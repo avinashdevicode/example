@@ -23,5 +23,8 @@ urlpatterns = patterns('',
     url(r'^accounts/auth', 'example.views.authView'),
     url(r'^accounts/logedin', 'example.views.logedinView'),
     url(r'^accounts/logout', 'example.views.logoutView'),
+     url(r'^accounts/register_sucess', 'example.views.registerSuccessView'),
+    url(r'^accounts/register', 'example.views.registerView', name = 'register'),
+   
     
 )
